@@ -1,5 +1,6 @@
 import DropDown from "./DropDown"
 import "./style.css"
+import Togglable from "./Togglable"
 
 const ControlPanel = ({ setTravelMode, setYear }: any) => {
   const showYearSelect = false
@@ -35,6 +36,12 @@ const ControlPanel = ({ setTravelMode, setYear }: any) => {
           label={"Year: "}
         />
       )}
+      <Togglable
+        prompt={"info"}
+        content={
+          "a very long info that should wrap properly and not become a long single line"
+        }
+      />
     </div>
   )
 }
