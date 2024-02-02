@@ -38,7 +38,6 @@ const MapComponent = ({
     _setHoverMode(mode)
   }
 
-  // Viewport settings
   const INITIAL_VIEW_STATE = {
     longitude: 24.88,
     latitude: 60.25,
@@ -47,11 +46,6 @@ const MapComponent = ({
     bearing: 0,
   }
 
-  // const handleHover = useCallback((event: any) => {
-  //   if (event.features.length > 0 && hoverModeRef.current === true) {
-  //     setYkrId(event.features[0].properties.YKR_ID)
-  //   }
-  // }, []);
   const handleHover = (event: any) => {
     const {
       features,
@@ -71,8 +65,8 @@ const MapComponent = ({
     }
   }
   const handleClick = (event: any) => {
+    // detect clicks on grid
     if (event.features.length > 0) {
-      // detect clicks on grid
       setYkrId(event.features[0].properties.YKR_ID)
       setHoverMode(!hoverMode)
       if (hoverModeRef.current === false) {
@@ -84,10 +78,6 @@ const MapComponent = ({
       } else {
         setMarkerVisibility(false)
       }
-    } else {
-      // clear map on clicks outside area
-      setMatrixData(null)
-      setHoverMode(false)
     }
   }
 
